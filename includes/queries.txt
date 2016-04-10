@@ -1,0 +1,87 @@
+XBOX ONE QUERIES
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE platform.id = 4;
+    
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Action" and platform.id = 4;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Shooter" and platform.id = 4;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Horror" and platform.id = 4;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "MMO-RPG" and platform.id = 4;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Strategy" and platform.id = 4;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Simulation" and platform.id = 4;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "MOBA" and platform.id = 4;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Arcade" and platform.id = 4;
+    
+
+PS4 QUERIES
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE and platform.id = 2;
+    
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Action" and platform.id = 2;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Shooter" and platform.id = 2;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Horror" and platform.id = 2;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "MMO-RPG" and platform.id = 2;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Strategy" and platform.id = 2;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Simulation" and platform.id = 2;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "MOBA" and platform.id = 2;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Arcade" and platform.id = 2;
+    
+    
+
+PC QUERIES
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE and platform.id = 1;
+    
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Action" and platform.id = 1;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Shooter" and platform.id = 1;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Horror" and platform.id = 1;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "MMO-RPG" and platform.id = 1;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Strategy" and platform.id = 1;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Simulation" and platform.id = 1;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "MOBA" and platform.id = 1;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Arcade" and platform.id = 1;
+    
+    
+    
+
+XBOX 360 QUERIES
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE platform.id = 5;
+    
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Action" and platform.id = 5;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Shooter" and platform.id = 5;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Horror" and platform.id = 5;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "MMO-RPG" and platform.id = 5;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Strategy" and platform.id = 5;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Simulation" and platform.id = 5;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "MOBA" and platform.id = 5;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Arcade" and platform.id = 5;
+    
+    
+    
+    
+
+PS3 QUERIES
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE platform.id = 3;
+    
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Action" and platform.id = 3;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Shooter" and platform.id = 3;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Horror" and platform.id = 3;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "MMO-RPG" and platform.id = 3;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Strategy" and platform.id = 3;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Simulation" and platform.id = 3;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "MOBA" and platform.id = 3;
+    SELECT * FROM `game` NATURAL JOIN `genre` NATURAL JOIN `platform` WHERE genre.name = "Arcade" and platform.id = 3;
+    
+    
+------------------------------------------------------------------------------------------------------------------------
+
+SEARCH QUERY
+    //search title is the info the user enters in the bar, if there is any. only work if they click on the button next to the search bar.
+    
+    SELECT * FROM `game` WHERE title LIKE '%" . $searchTitle . "%';
+
+------------------------------------------------------------------------------------------------------------------------
+
+PRICE RANGE QUERY 
+
+SELECT * FROM `game` WHERE price < 24;
+SELECT * FROM `game` WHERE price > 55;
+SELECT * FROM `game` WHERE price > 25 AND price < 54;
+    
+    
