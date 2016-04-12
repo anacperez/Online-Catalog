@@ -16,13 +16,13 @@
         <main>
             <h1>Welcome to Game Center!</h3>
             <hr>
-            <h2 text-decoration:italic> Energy to the Players. By the players, for the players!</h2>
+            <h2 > Energy to the Players. By the players, for the players!</h2>
             
             <!-- <h2>Clickable Dropdown</h2> -->
             
             <p>(Click on the button to open the dropdown menu.)</p>
             
-            Find games <input type="text" style="width:400px" name="Search Game" id='searchBar'/>
+             <input type="text" style="width:400px" placeholder="Find games"  name="Search Game" id='searchBar'/>
             <hr>
             
             <nav>
