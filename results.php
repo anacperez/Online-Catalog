@@ -13,8 +13,8 @@
     $genreID = $_COOKIE['genreId'];
     $consoleID = $_COOKIE['platformId'];
 
-
-    //$sort = $_GET['sort'];
+    $price = $_GET['price'];
+    $sort = $_GET['sort'];
 
     //putting data into session's array
   //  array_push($_SESSION['platformId'], 2, 1, 2, 3, 3);
@@ -31,6 +31,7 @@ function getQueryResult(){
         $sort = $_GET['sort'];
         $_SESSION['sort'] = $_GET['sort'];
     }    
+    
      if(isset($_GET['searchBar'])){
         $sql = " SELECT * FROM `game` WHERE title LIKE '%" . $_GET['searchBar'] . "%'";
     }
@@ -54,11 +55,10 @@ function getQueryResult(){
         //when we wwant to select all the games within the console, we want to grab everything we have
         if( $genreID != 0)
         {
-           $sql .= " and game.genreId = '$genreID'";        
+           $sql .= " and game.genreId= '$genreID'";        
         }
     }
     
-    echo "session: " . $_SESSION['sort'];
     if(isset($_SESSION['sort']))
     {
         
@@ -71,8 +71,7 @@ function getQueryResult(){
     }
     
    
-   
-    
+  
    
     $statement = $dbConnection->prepare($sql);
     $statement->execute();
@@ -97,7 +96,6 @@ function getQueryResult(){
         ?>
 
    
-    
 
             <hr>
             sort by price in: 
@@ -108,7 +106,7 @@ function getQueryResult(){
                         <input type="submit" name="Submit" value="Submit" style="outline: 0">
                         </form>
             <hr>
-     <form action="shoppingCart.php">
+ <form action="shoppingCart.php">
     <table>
         <th> Title</th>
         <th> Description</th>
@@ -163,7 +161,7 @@ function getQueryResult(){
              echo "</td>";
          
          }
-         echo "<td><input type=checkbox name='buy[]' value='".$result['gameId']."'></td>";
+         echo "<td><input type=checkbox name='buy[]' value='".$result['gameId']."' id='$result'></td>";
          echo"</tr>";
      }
     ?>
@@ -179,5 +177,6 @@ function getQueryResult(){
         function nextPage(){
             document.location = "shoppingCart.php"
         }
+        
     </script>
 </html>

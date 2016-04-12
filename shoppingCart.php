@@ -58,7 +58,9 @@
         <link rel="stylesheet" href="resultsStyles.css" type="text/css" />
     </head>
     <body>
-       <center> <?php
+       <center> 
+       <h1> Shopping Cart</h1>
+       <?php
             displayShoppingCart();
         ?>
         

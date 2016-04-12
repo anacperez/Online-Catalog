@@ -1,6 +1,4 @@
 <?php
-
-    
     include("includes/database.php");
 
     $temp = getDatabaseConnection("online_gamestop");
@@ -20,33 +18,15 @@
             
         </head>
         <main>
-            <h1>Welcome to Game Center!</h3>
+            <h1>Welcome to Game Center</h3>
             <hr>
-
-            <h2 > Energy to the Players. By the players, for the players!</h2>
-            
-            
-            <p>(Click on the button to open the dropdown menu.)</p>
-            
-             
+            <h2> The only place where you can buy a game and enjoy a nice cup of soup at the same time</h2>
             <form action="results.php">
-
-                <input type="text" style="width:400px" name="searchBar" placeholder="find games" id='searchBar'/> 
-
-
+                Find games <input type="text" style="width:400px" name="searchBar" id='searchBar'/> 
                 <input type="submit" name="Submit" value="Submit">
             </form>
             
             <hr>
-            
-                     <form action="results.php">
-                        <input type="radio" name = "price" value = 1>Above 55</button>
-                        <input type="radio" name = "price" value = 2>between 25 and 54</button>
-                        <input type="radio" name = "price" value = 3>Below 24</button>
-                        <input type="submit" name="Submit" value="Submit" style="outline: 0">
-                        </form>
-             
-             <hr>
             
             <nav>
                 
@@ -136,24 +116,7 @@
                         <button type="button" onclick="setGameInfo(5, 8 30)"> Arcade </button>
                     </div>
                 </div>
-             
-            
-                
-                 
-               
-               
-                
-             
             </nav>
-            <hr>
-            <table border=1>
-            <tr>
-            <td>
-         <input type = "image" src = "img/shoppingCart.png" width=120 value ="submit form" alt="go to shopping cart" />
-         <p>go to shopping cart</p>
-         </td>
-         </tr>
-         </table>
             
             
             <style>
@@ -189,9 +152,6 @@
                 else if(value === 5){
                     document.getElementById("PC").classList.toggle("show");
                 }
-                else if(value == 6){
-                    document.getElementById("priceRange").classList.toggle("show");
-                }
             }
             
             // Close the dropdown if the user clicks outside of it
@@ -209,15 +169,6 @@
               }
             }
             
-            function setPriceRange(price, exdays){
-                var d = new Date();
-                d.setTime(d.getTime() + (exdays*24*60*60*1000));
-                var expires = "expires="+d.toUTCString(); 
-                document.cookie = "price" + "=" + price +"; " + expires;
-                
-                document.location = "results.php";
-            }
-            
             
             function setGameInfo(platformId, genreId, exdays){
                 var d = new Date();
@@ -226,22 +177,8 @@
                 document.cookie = "platformId" + "=" + platformId + "; " + expires;
                 document.cookie = "genreId" + "=" + genreId + "; " + expires; 
                 
-                document.location = "results.php";
+                document.location = "results.php"
                 
-                
-            }
-            
-            function getPriceRange(price){
-                var name = "price" + "=";
-                var ca = document.cookie.split(';');
-                for(var i=0; i<ca.length; i++) {
-                    var c = ca[i];
-                    while (c.charAt(0)==' ') c = c.substring(1);
-                        if (c.indexOf(name) == 0) {
-                            return c.substring(name.length, c.length);
-                        }
-                    }
-                    return "";
                 
             }
             
@@ -262,17 +199,8 @@
             
             </script>
         </main>
-        
-    <footer>
-        
-        &copy; Zapata, 2016. <br />
-        Disclaimer: The content on the website might not be accurate
-        <br />
-        <img src="../../img/csumb-logo.png"
-        
-        alt= "CSUMB Logo">
-        
-    </footer>  
+         <input type = "image" src = "img/buy.png" width=150 value ="submit form" />
+         add the above img to the shopping cart page
     </body>
    
 </html>
