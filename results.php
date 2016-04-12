@@ -2,23 +2,38 @@
     include("includes/database.php");
 
     $dbConnection = getDatabaseConnection("online_gamestop");
-    
-  //  $genreID = $_GET['genre_id']; 
-//    $consoleID = $_GET['console_id'];
-     $genreID = 1;
-    $consoleID = 2;
+    $genreID = $_COOKIE['genreId'];
+    $consoleID = $_COOKIE['platformId'];
+
+   
+
 function getQueryResult(){
     global $dbConnection;
     global $genreID;
     global $consoleID;
     
-    $sql = "SELECT title, description, price, rating, starRating, releaseDate from game where
-    game.genreId= '$genreID' and game.platformId = '$consoleID'";
+     if(isset($_GET['searchBar'])){
+        $sql = " SELECT * FROM `game` WHERE title LIKE '%" . $_GET['searchBar'] . "%'";
+    }
+    else if(isset($_COOKIE['platformId']) && isset($_COOKIE['genreId'] )){
+         $sql = "SELECT title, description, price, rating, starRating, releaseDate from game where
+        game.platformId = '$consoleID'";
+        //when we wwant to select all the games within the console, we want to grab everything we have
+        if( $genreID != 0)
+        {
+           $sql .= " and game.genreId= '$genreID'";        
+        }
+    }
+    
+   
+    echo $sql;
     $statement = $dbConnection->prepare($sql);
     $statement->execute();
     $records = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $records;   
 }
+
+
 ?>
 <!DOCTYPE html>
 <html>
