@@ -16,8 +16,8 @@
     $price = $_GET['price'];
 
     //putting data into session's array
-    array_push($_SESSION['platformId'], 2, 1, 2, 3, 3);
-    array_push($_SESSION['gameId'], 3, 4, 2, 3, 1, 4);
+  //  array_push($_SESSION['platformId'], 2, 1, 2, 3, 3);
+//    array_push($_SESSION['gameId'], 3, 4, 2, 3, 1, 4);
 
    
 
@@ -45,7 +45,7 @@ function getQueryResult(){
         }
     }
     else if(isset($_COOKIE['platformId']) && isset($_COOKIE['genreId'] )){
-         $sql = "SELECT title, description, price, rating, starRating, releaseDate from `game` where
+         $sql = "SELECT  gameId, title, description, price, rating, starRating, releaseDate from `game` where
         game.platformId = '$consoleID'";
         //when we wwant to select all the games within the console, we want to grab everything we have
         if( $genreID != 0)
@@ -76,6 +76,8 @@ function getQueryResult(){
         <?php
         $results = getQueryResult();
         ?>
+    <form action="shoppingCart.php">
+        <input type="text" name=""/>
     <table>
         <th> Title</th>
         <th> Description</th>
@@ -130,11 +132,13 @@ function getQueryResult(){
              echo "</td>";
          
          }
-         echo "<td><input type=checkbox name='buy' value='buy'></td>";
+         echo "<td><input type=checkbox name='buy[]' value='".$result['gameId']."' id='$result'></td>";
          echo"</tr>";
      }
     ?>
     </table>
+    <input type="submit" value="Submit"/>
+    </form>
     </center>
     
     <button type="button" onclick="nextPage()" name="Proceed" >Shopping Cart</button>
