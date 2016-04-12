@@ -50,9 +50,10 @@ main, nav{
 }
 
 nav div {
-    background-color: blue;
+    background-color: #00b6ff;
     padding-left: 30px; 
     padding-right: 30px;
+    
 }
         footer{
             text-align: center;
@@ -67,3 +68,12 @@ h1 {
            
         }
 
+.img-with-text {
+    text-align: justify;
+    width: 170;
+}
+
+.img-with-text img {
+    display: block;
+    margin: 0 auto;
+}

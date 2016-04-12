@@ -4,7 +4,7 @@ function getDatabaseConnection($dbname){
     $host = "localhost";
    //$dbname = "otter_express";
    //this is assuming that everyone has the same username and password
-    $username = "web_user";
+    $username = "zapa4234";
     $password = "s3cr3t";
     
     //connecting to the database

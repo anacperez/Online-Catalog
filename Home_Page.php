@@ -14,12 +14,13 @@
             
         </head>
         <main>
-            <h1>Welcome to Game Center</h3>
+            <h1>Welcome to Game Center!</h3>
             <hr>
-            <h2> The only place where you can buy a game and enjoy a nice cup of soup at the same time</h2>
+            <h2 text-decoration:italic> Energy to the Players. By the players, for the players!</h2>
             
-            <h2>Clickable Dropdown</h2>
-            <p>Click on the button to open the dropdown menu.</p>
+            <!-- <h2>Clickable Dropdown</h2> -->
+            
+            <p>(Click on the button to open the dropdown menu.)</p>
             
             Find games <input type="text" style="width:400px" name="Search Game" id='searchBar'/>
             <hr>
@@ -101,7 +102,28 @@
                         <a href="results.php?genre=8?console=5">Arcade</a>
                     </div>
                 </div>
+                <div class="dropdown">
+                    <button onclick="myFunction(6)" class="dropbtn">Price Range</button>
+                    <div id="priceRange" class="dropdown-content">
+
+                        <a href="">Above 55</a>
+                        <a href="">between 25 and 54</a>
+                        <a href="">Below 24</a>
+                        
+                    </div>
+                </div>
+                
+             
             </nav>
+            <hr>
+            <table border=1>
+            <tr>
+            <td>
+         <input type = "image" src = "img/shoppingCart.png" width=120 value ="submit form" alt="go to shopping cart" />
+         <p>go to shopping cart</p>
+         </td>
+         </tr>
+         </table>
             
             <script>
             /* When the user clicks on the button, 
@@ -124,6 +146,9 @@
                 else if(value === 5){
                     document.getElementById("PC").classList.toggle("show");
                 }
+                else if(value == 6){
+                    document.getElementById("priceRange").classList.toggle("show");
+                }
             }
             
             // Close the dropdown if the user clicks outside of it
@@ -142,7 +167,7 @@
             }
             </script>
         </main>
-         <input type = "image" src = "img/buy.png" width=150 value ="submit form" />
-         add the above img to the shopping cart page
+        
+         
     </body>
 </html>
