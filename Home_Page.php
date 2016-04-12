@@ -19,12 +19,14 @@
             
             <h2>Clickable Dropdown</h2>
             <p>Click on the button to open the dropdown menu.</p>
+            
+            Search <input type="text" name="Search Game" id='searchBar'/>
+            
             <nav>
-                <form>
+                
                 <div class="dropdown">
                     <button onclick="myFunction(1)" class="dropbtn">Xbox 360</button>
                       <div id="XBox360" class="dropdown-content">
-                        <h2>Xbox 360 Games</h2>
                         <a href="results.php?genre=0?console=4">All</a>
                         <a href="results.php?genre=1?console=4">Action</a>
                         <a href="results.php?genre=2?console=4">Shooter</a>
@@ -36,11 +38,11 @@
                         <a href="results.php?genre=8?console=4">Arcade</a>
                       </div>
                 </div>
-                </form>
+ 
                 <div class="dropdown">
                     <button onclick="myFunction(2)" class="dropbtn">Xbox One</button>
                     <div id="XboxOne" class="dropdown-content">
-                        <h2>Xbox One Games</h2>
+
                         <a href="results.php?genre=0?console=1">All</a>
                         <a href="results.php?genre=1?console=1">Action</a>
                         <a href="results.php?genre=2?console=1">Shooter</a>
@@ -55,7 +57,7 @@
                 <div class="dropdown">
                     <button onclick="myFunction(3)" class="dropbtn">PS3</button>
                         <div id="PS3" class="dropdown-content">
-                        <h2>PS3 Games</h2>
+
                         <a href="results.php?genre=0?console=3">All</a>
                         <a href="results.php?genre=1?console=3">Action</a>
                         <a href="results.php?genre=2?console=3">Shooter</a>
@@ -66,12 +68,11 @@
                         <a href="results.php?genre=7?console=3">MOBA</a>
                         <a href="results.php?genre=8?console=3">Arcade</a>
                         </div>
-
                 </div>
                 <div class="dropdown">
                     <button onclick="myFunction(4)" class="dropbtn">PS4</button>
                     <div id="PS4" class="dropdown-content">
-                        <h2>PS4 Games</h2>
+
                         <a href="results.php?genre=0?console=2">All</a>
                         <a href="results.php?genre=1?console=2">Action</a>
                         <a href="results.php?genre=2?console=2">Shooter</a>
@@ -86,7 +87,7 @@
                 <div class="dropdown">
                     <button onclick="myFunction(5)" class="dropbtn">PC</button>
                     <div id="PC" class="dropdown-content">
-                        <h2>PC Games</h2>
+
                         <a href="results.php?genre=0?console=5">All</a>
                         <a href="results.php?genre=1?console=5">Action</a>
                         <a href="results.php?genre=2?console=5">Shooter</a>
