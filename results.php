@@ -4,6 +4,7 @@
     $dbConnection = getDatabaseConnection("online_gamestop");
     $genreID = $_COOKIE['genreId'];
     $consoleID = $_COOKIE['platformId'];
+    $price = $_GET['price'];
 
    
 
@@ -11,12 +12,27 @@ function getQueryResult(){
     global $dbConnection;
     global $genreID;
     global $consoleID;
+    global $price;
     
      if(isset($_GET['searchBar'])){
         $sql = " SELECT * FROM `game` WHERE title LIKE '%" . $_GET['searchBar'] . "%'";
     }
+     else if(isset($_GET['price'])){
+        if($price == 1){
+            $sql = "SELECT title, description, price, rating, starRating, releaseDate FROM `game` WHERE 
+            price > 55";
+        }
+        else if($price == 2){
+            $sql = "SELECT title, description, price, rating, starRating, releaseDate FROM `game` WHERE 
+            price > 25 AND price < 54";
+        }
+        else if($price == 3){
+            $sql = "SELECT title, description, price, rating, starRating, releaseDate FROM `game` WHERE 
+            price < 24";
+        }
+    }
     else if(isset($_COOKIE['platformId']) && isset($_COOKIE['genreId'] )){
-         $sql = "SELECT title, description, price, rating, starRating, releaseDate from game where
+         $sql = "SELECT title, description, price, rating, starRating, releaseDate from `game` where
         game.platformId = '$consoleID'";
         //when we wwant to select all the games within the console, we want to grab everything we have
         if( $genreID != 0)
@@ -24,6 +40,8 @@ function getQueryResult(){
            $sql .= " and game.genreId= '$genreID'";        
         }
     }
+    
+   
     
    
     $statement = $dbConnection->prepare($sql);

@@ -34,6 +34,15 @@
             
             <hr>
             
+                     <form action="results.php">
+                        <input type="radio" name = "price" value = 1>Above 55</button>
+                        <input type="radio" name = "price" value = 2>between 25 and 54</button>
+                        <input type="radio" name = "price" value = 3>Below 24</button>
+                        <input type="submit" name="Submit" value="Submit" style="outline: 0">
+                        </form>
+             
+             <hr>
+            
             <nav>
                 
                 <div class="dropdown">
@@ -122,16 +131,12 @@
                         <button type="button" onclick="setGameInfo(5, 8 30)"> Arcade </button>
                     </div>
                 </div>
-                <div class="dropdown">
-                    <button onclick="myFunction(6)" class="dropbtn">Price Range</button>
-                    <div id="priceRange" class="dropdown-content">
-
-                        <a href="">Above 55</a>
-                        <a href="">between 25 and 54</a>
-                        <a href="">Below 24</a>
-                        
-                    </div>
-                </div>
+             
+            
+                
+                 
+               
+               
                 
              
             </nav>
@@ -199,6 +204,15 @@
               }
             }
             
+            function setPriceRange(price, exdays){
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                var expires = "expires="+d.toUTCString(); 
+                document.cookie = "price" + "=" + price +"; " + expires;
+                
+                document.location = "results.php";
+            }
+            
             
             function setGameInfo(platformId, genreId, exdays){
                 var d = new Date();
@@ -207,8 +221,22 @@
                 document.cookie = "platformId" + "=" + platformId + "; " + expires;
                 document.cookie = "genreId" + "=" + genreId + "; " + expires; 
                 
-                document.location = "results.php"
+                document.location = "results.php";
                 
+                
+            }
+            
+            function getPriceRange(price){
+                var name = "price" + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0; i<ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1);
+                        if (c.indexOf(name) == 0) {
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
                 
             }
             
