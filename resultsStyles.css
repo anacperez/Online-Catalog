@@ -1,0 +1,24 @@
+th{
+    color: black;
+    height: 50px;
+    text-align: center;
+}
+tr{
+    color: black;
+}
+table{
+    border: 1px solid black;
+    border-spacing: inherit;
+    border-collapse: collapse;
+}
+td{
+    height: 45px;
+    text-align: left;
+}
+th, td{
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+h1{
+    color: green;
+}
