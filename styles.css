@@ -54,3 +54,15 @@ nav div {
     padding-left: 30px; 
     padding-right: 30px;
 }
+        footer{
+            text-align: center;
+        }
+h1 {
+            background-color: #00b6ff !important; 
+            text-align:center;
+            color: #1c09ef !important;
+        }
+        body{
+            font-family: Verdana;
+           
+        }
