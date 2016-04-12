@@ -21,6 +21,12 @@
         global $total;
         global $dbConnection;
         echo "<table border = 1>";
+        echo "<th> Title</th>";
+        echo "<th> Description</th>";
+        echo " <th> Price</th>";
+        echo "<th> rating</th>";
+        echo "<th> Star Rating</th>";
+        echo "<th> release date</th>";
          foreach($_SESSION['gameId'] as $game){
               $sql = "SELECT title, description, price, rating, starRating, releaseDate from `game` where
                 game.gameId='$game'";
@@ -38,7 +44,7 @@
              echo "</tr>";
          }
          echo "<tr>";
-         echo "<td>" . $total . " dollars " . "</td>";
+         echo "<td>" . "Total: " . $total . " dollars " . "</td>";
          echo "</tr>";
          echo"</table>";
     }
@@ -48,11 +54,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> </title>
+        <title> Shopping Cart</title>
+        <link rel="stylesheet" href="resultsStyles.css" type="text/css" />
     </head>
     <body>
-        <?php
+       <center> <?php
             displayShoppingCart();
         ?>
+        
+        <button type="button" onclick="finished()">Complete transaction</button>
+        </center>
+        
+
     </body>
+    
+    
+    <script>
+        function finished(){
+            alert("Transaction complete"); 
+            document.location = "Home_Page.php";
+        }
+        
+    </script>
 </html>
