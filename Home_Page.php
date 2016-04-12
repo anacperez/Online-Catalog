@@ -1,4 +1,6 @@
 <?php
+
+    
     include("includes/database.php");
 
     $temp = getDatabaseConnection("online_gamestop");
@@ -28,7 +30,10 @@
             
              
             <form action="results.php">
+
                 <input type="text" style="width:400px" name="searchBar" placeholder="find games" id='searchBar'/> 
+
+
                 <input type="submit" name="Submit" value="Submit">
             </form>
             

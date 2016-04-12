@@ -1,10 +1,23 @@
 <?php
+
+    session_start(); 
+    
+    $_SESSION['platformId'] = array();
+    $_SESSION['gameId'] = array(); 
+ 
+
+    
     include("includes/database.php");
 
     $dbConnection = getDatabaseConnection("online_gamestop");
     $genreID = $_COOKIE['genreId'];
     $consoleID = $_COOKIE['platformId'];
+
     $price = $_GET['price'];
+
+    //putting data into session's array
+    array_push($_SESSION['platformId'], 2, 1, 2, 3, 3);
+    array_push($_SESSION['gameId'], 3, 4, 2, 3, 1, 4);
 
    
 
@@ -123,5 +136,13 @@ function getQueryResult(){
     ?>
     </table>
     </center>
+    
+    <button type="button" onclick="nextPage()" name="Proceed" >Shopping Cart</button>
     </body>
+    
+    <script>
+        function nextPage(){
+            document.location = "shoppingCart.php"
+        }
+    </script>
 </html>
