@@ -3,7 +3,7 @@
     include("includes/database.php");
 
     $dbConnection = getDatabaseConnection("online_gamestop");
-    
+    $total = 0;
     $platform_array = $_SESSION['platformId'];
     $games_array = $_SESSION['gameId'];
    // print_r($platform_array);
@@ -18,6 +18,7 @@
         array_push($_SESSION['gameId'], $item);
     }
     function displayShoppingCart(){
+        global $total;
         global $dbConnection;
         echo "<table border = 1>";
          foreach($_SESSION['gameId'] as $game){
@@ -26,6 +27,7 @@
              $statement = $dbConnection->prepare($sql);
              $statement->execute();
              $records = $statement->fetchAll(PDO::FETCH_ASSOC);
+             $total += $records[0]['price'];
              echo "<tr>";
              echo "<td>" . $records[0]['title'] . "</td>";
              echo "<td>" . $records[0]['description'] . "</td>";
@@ -35,6 +37,9 @@
              echo "<td>" . $records[0]['releaseDate'] . "</td>";
              echo "</tr>";
          }
+         echo "<tr>";
+         echo "<td>" . $total . " dollars " . "</td>";
+         echo "</tr>";
          echo"</table>";
     }
 

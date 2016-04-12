@@ -13,8 +13,8 @@
     $genreID = $_COOKIE['genreId'];
     $consoleID = $_COOKIE['platformId'];
 
-    $price = $_GET['price'];
-    $sort = $_GET['sort'];
+
+    //$sort = $_GET['sort'];
 
     //putting data into session's array
   //  array_push($_SESSION['platformId'], 2, 1, 2, 3, 3);
@@ -54,7 +54,7 @@ function getQueryResult(){
         //when we wwant to select all the games within the console, we want to grab everything we have
         if( $genreID != 0)
         {
-           $sql .= " and game.genreId= '$genreID'";        
+           $sql .= " and game.genreId = '$genreID'";        
         }
     }
     
@@ -71,7 +71,7 @@ function getQueryResult(){
     }
     
    
-   echo "sql ---< " . $sql; 
+   
     
    
     $statement = $dbConnection->prepare($sql);
@@ -95,10 +95,10 @@ function getQueryResult(){
         <?php
         $results = getQueryResult();
         ?>
-<<<<<<< HEAD
-    <form action="shoppingCart.php">
-        <input type="text" name=""/>
-=======
+
+   
+    
+
             <hr>
             sort by price in: 
              <form action="results.php">
@@ -108,7 +108,7 @@ function getQueryResult(){
                         <input type="submit" name="Submit" value="Submit" style="outline: 0">
                         </form>
             <hr>
->>>>>>> e09e3257d0ac128f108e3a84dfa3439f361ed31c
+     <form action="shoppingCart.php">
     <table>
         <th> Title</th>
         <th> Description</th>
@@ -163,7 +163,7 @@ function getQueryResult(){
              echo "</td>";
          
          }
-         echo "<td><input type=checkbox name='buy[]' value='".$result['gameId']."' id='$result'></td>";
+         echo "<td><input type=checkbox name='buy[]' value='".$result['gameId']."'></td>";
          echo"</tr>";
      }
     ?>
