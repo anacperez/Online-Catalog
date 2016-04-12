@@ -26,7 +26,6 @@ function getQueryResult(){
     }
     
    
-    echo $sql;
     $statement = $dbConnection->prepare($sql);
     $statement->execute();
     $records = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -43,6 +42,9 @@ function getQueryResult(){
     </head>
     <body>
         <center><h1>Online GameStop!</h1>
+        <?php
+        $results = getQueryResult();
+        ?>
     <table>
         <th> Title</th>
         <th> Description</th>
@@ -50,9 +52,16 @@ function getQueryResult(){
         <th> rating</th>
         <th> Star Rating</th>
         <th> release date</th>
+        <?php
+            foreach($results as $result){
+                if(isset($result[platformId]))
+                    echo "<th> Platform </td>";
+                break;
+            }
+        ?>
         <th> purchase</th>
     <?php
-     $results = getQueryResult();
+     
      foreach ($results as $result) {
          echo "<tr>";
          echo "<td>" . $result['title'] . "</td>";
@@ -61,6 +70,35 @@ function getQueryResult(){
          echo "<td>" . $result['rating'] . "</td>";
          echo "<td>" . $result['starRating'] . "</td>";
          echo "<td>" . $result['releaseDate'] . "</td>";
+         
+         if(isset($result['platformId'])){
+             
+           
+             echo "<td>";
+            
+             switch ($result['platformId']) {
+                 case '1':
+                        echo " Xbox One"; 
+                     break;
+                 case '2': 
+                     echo " PS4 "; 
+                     break; 
+                case '3': 
+                    echo "PS3";
+                    break;
+                case '4': 
+                    echo "Xbox 360"; 
+                    break; 
+                case '5': 
+                    echo " PC "; 
+                    break; 
+                 default:
+                     echo " unknown"; 
+                     break;
+             }
+             echo "</td>";
+         
+         }
          echo "<td><input type=checkbox name='buy' value='buy'></td>";
          echo"</tr>";
      }
