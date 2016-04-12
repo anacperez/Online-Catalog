@@ -24,9 +24,11 @@ function getQueryResult(){
 <html>
     <head>
         <title>Game Stop Online Catelog</title>
+         <link rel="stylesheet" href="resultsStyles.css" type="text/css" />
     </head>
     <body>
-    <table border = 1>
+        <center><h1>Online GameStop!</h1>
+    <table>
         <th> Title</th>
         <th> Description</th>
         <th> Price</th>
@@ -49,5 +51,6 @@ function getQueryResult(){
      }
     ?>
     </table>
+    </center>
     </body>
 </html>
