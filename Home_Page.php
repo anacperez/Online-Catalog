@@ -1,6 +1,6 @@
 <?php
     include("includes/database.php");
-    $temp = getDatabaseConnection("otter_express")
+    $temp = getDatabaseConnection("online_gamestop");
 ?>
 
 <!DOCTYPE html>
