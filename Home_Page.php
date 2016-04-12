@@ -14,13 +14,15 @@
             
         </head>
         <main>
-            <h3>Welcome to Game Center</h3>
+            <h1>Welcome to Game Center</h3>
+            <hr>
             <h2> The only place where you can buy a game and enjoy a nice cup of soup at the same time</h2>
             
             <h2>Clickable Dropdown</h2>
             <p>Click on the button to open the dropdown menu.</p>
             
-            Search <input type="text" name="Search Game" id='searchBar'/>
+            Find games <input type="text" style="width:400px" name="Search Game" id='searchBar'/>
+            <hr>
             
             <nav>
                 
@@ -140,6 +142,7 @@
             }
             </script>
         </main>
-        
+         <input type = "image" src = "img/buy.png" width=150 value ="submit form" />
+         add the above img to the shopping cart page
     </body>
 </html>
