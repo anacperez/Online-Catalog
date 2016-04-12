@@ -14,6 +14,7 @@
     $consoleID = $_COOKIE['platformId'];
 
     $price = $_GET['price'];
+    $sort = $_GET['sort'];
 
     //putting data into session's array
   //  array_push($_SESSION['platformId'], 2, 1, 2, 3, 3);
@@ -26,7 +27,10 @@ function getQueryResult(){
     global $genreID;
     global $consoleID;
     global $price;
-    
+    if(isset($_GET['sort'])){
+        $sort = $_GET['sort'];
+        $_SESSION['sort'] = $_GET['sort'];
+    }    
      if(isset($_GET['searchBar'])){
         $sql = " SELECT * FROM `game` WHERE title LIKE '%" . $_GET['searchBar'] . "%'";
     }
@@ -54,7 +58,20 @@ function getQueryResult(){
         }
     }
     
+    echo "session: " . $_SESSION['sort'];
+    if(isset($_SESSION['sort']))
+    {
+        
+        if($_SESSION['sort'] == 1)
+            $sql .= " order by price ASC";
+            
+        else if($_SESSION['sort'] == 2)
+            $sql .= " order by price DESC";
+        
+    }
+    
    
+   echo "sql ---< " . $sql; 
     
    
     $statement = $dbConnection->prepare($sql);
@@ -62,6 +79,8 @@ function getQueryResult(){
     $records = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $records;   
 }
+
+
 
 
 ?>
@@ -72,12 +91,24 @@ function getQueryResult(){
          <link rel="stylesheet" href="resultsStyles.css" type="text/css" />
     </head>
     <body>
-        <center><h1>Online GameStop!</h1>
+        <center><h1>Online Game Center!</h1>
         <?php
         $results = getQueryResult();
         ?>
+<<<<<<< HEAD
     <form action="shoppingCart.php">
         <input type="text" name=""/>
+=======
+            <hr>
+            sort by price in: 
+             <form action="results.php">
+                        <input type="radio" name = "sort" value = 1>ascending</button>
+                        <input type="radio" name = "sort" value = 2>descending</button>
+                        
+                        <input type="submit" name="Submit" value="Submit" style="outline: 0">
+                        </form>
+            <hr>
+>>>>>>> e09e3257d0ac128f108e3a84dfa3439f361ed31c
     <table>
         <th> Title</th>
         <th> Description</th>

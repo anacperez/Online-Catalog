@@ -263,7 +263,16 @@
             </script>
         </main>
         
-         
+    <footer>
+        
+        &copy; Zapata, 2016. <br />
+        Disclaimer: The content on the website might not be accurate
+        <br />
+        <img src="../../img/csumb-logo.png"
+        
+        alt= "CSUMB Logo">
+        
+    </footer>  
     </body>
    
 </html>
