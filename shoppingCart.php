@@ -14,8 +14,12 @@
     }
    // print_r($_GET['buy']);
     $items = $_GET['buy'];
-    foreach($items as $item){
+    
+    if(isset($items)){
+        foreach($items as $item){
         array_push($_SESSION['gameId'], $item);
+    }
+    
     }
     function displayShoppingCart(){
         global $total;
@@ -27,6 +31,9 @@
         echo "<th> rating</th>";
         echo "<th> Star Rating</th>";
         echo "<th> release date</th>";
+        if(isset($_SESSION['gameId'])){
+            
+        
          foreach($_SESSION['gameId'] as $game){
               $sql = "SELECT title, description, price, rating, starRating, releaseDate from `game` where
                 game.gameId='$game'";
@@ -34,6 +41,7 @@
              $statement->execute();
              $records = $statement->fetchAll(PDO::FETCH_ASSOC);
              $total += $records[0]['price'];
+         
              echo "<tr>";
              echo "<td>" . $records[0]['title'] . "</td>";
              echo "<td>" . $records[0]['description'] . "</td>";
@@ -42,9 +50,10 @@
              echo "<td>" . $records[0]['starRating'] . "</td>";
              echo "<td>" . $records[0]['releaseDate'] . "</td>";
              echo "</tr>";
-         }
+            }
+        }
          echo "<tr>";
-         echo "<td>" . "Total: " . $total . " dollars " . "</td>";
+         echo "<td>" . "Total: $" . $total . " dollars " . "</td>";
          echo "</tr>";
          echo"</table>";
     }
@@ -64,10 +73,10 @@
             displayShoppingCart();
         ?>
         
-        <button type="button" onclick="finished()">Complete transaction</button>
-        </center>
+        <input type = "image" src = "img/buy.png" onclick="finished()"width=150 value ="submit form" />
+        <br />
         
-
+        </center>
     </body>
     
     
@@ -76,6 +85,7 @@
             alert("Transaction complete"); 
             document.location = "Home_Page.php";
         }
+        
         
     </script>
 </html>

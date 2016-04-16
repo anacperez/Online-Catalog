@@ -20,10 +20,20 @@
         <main>
             <h1>Welcome to Game Center</h3>
             <hr>
-            <h2> The only place where you can buy a game and enjoy a nice cup of soup at the same time</h2>
+            <h2>Energy to the players. By the players, for the players!</h2>
             <form action="results.php">
                 Find games <input type="text" style="width:400px" name="searchBar" id='searchBar'/> 
                 <input type="submit" name="Submit" value="Submit">
+            </form>
+            
+            <hr>
+            
+            <form action="results.php">
+                Search by price range: 
+                <input type="radio" value="1" name='price'/> > $55 |
+                <input type="radio" value="2" name='price'/> $25 - $54 |
+                <input type="radio" value="3" name='price'/> < $25
+                <input type="submit" value="Submit"/>
             </form>
             
             <hr>
@@ -172,12 +182,12 @@
             
             function setGameInfo(platformId, genreId, exdays){
                 var d = new Date();
-                d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                d.setTime(d.getTime() + (exdays*60*60*60*1000));
                 var expires = "expires="+d.toUTCString();
                 document.cookie = "platformId" + "=" + platformId + "; " + expires;
                 document.cookie = "genreId" + "=" + genreId + "; " + expires; 
                 
-                document.location = "results.php"
+                document.location = "results.php";
                 
                 
             }
@@ -196,11 +206,23 @@
                 
                 }
             
+            function shoppingCart(){
+                document.location = "shoppingCart.php";
+            }
             
             </script>
+            
+             <input type = "image" src = "img/shoppingCart.png" onclick="shoppingCart()"width=150 value ="submit form" />
         </main>
-         <input type = "image" src = "img/buy.png" width=150 value ="submit form" />
-         add the above img to the shopping cart page
+        
+        
+        
+        <style>
+            image {
+                text-align: center;
+                background-color: green; 
+            }
+        </style>
     </body>
    
 </html>

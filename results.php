@@ -16,9 +16,10 @@
     $price = $_GET['price'];
     $sort = $_GET['sort'];
 
-    //putting data into session's array
-  //  array_push($_SESSION['platformId'], 2, 1, 2, 3, 3);
-//    array_push($_SESSION['gameId'], 3, 4, 2, 3, 1, 4);
+
+    echo "------------------>" . $price; 
+
+
 
    
 
@@ -32,10 +33,10 @@ function getQueryResult(){
         $_SESSION['sort'] = $_GET['sort'];
     }    
     
-     if(isset($_GET['searchBar'])){
+    if(isset($_GET['searchBar'])){
         $sql = " SELECT * FROM `game` WHERE title LIKE '%" . $_GET['searchBar'] . "%'";
     }
-     else if(isset($_GET['price'])){
+    else if(isset($_GET['price'])){
         if($price == 1){
             $sql = "SELECT title, description, price, rating, starRating, releaseDate FROM `game` WHERE 
             price > 55";
@@ -95,7 +96,6 @@ function getQueryResult(){
         $results = getQueryResult();
         ?>
 
-   
 
             <hr>
             sort by price in: 
@@ -106,7 +106,8 @@ function getQueryResult(){
                         <input type="submit" name="Submit" value="Submit" style="outline: 0">
                         </form>
             <hr>
- <form action="shoppingCart.php">
+
+    <form action='shoppingCart.php'>
     <table>
         <th> Title</th>
         <th> Description</th>
@@ -170,7 +171,6 @@ function getQueryResult(){
     </form>
     </center>
     
-    <button type="button" onclick="nextPage()" name="Proceed" >Shopping Cart</button>
     </body>
     
     <script>
